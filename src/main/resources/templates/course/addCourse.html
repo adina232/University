@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Course Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 40px;
+      color: #fff;
+      z-index: 2;
+ line-height: 83px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px #006622;
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      background-image: url("data:image/jpeg;base64,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");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+    }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #006622;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #006622;
+      color: #006622;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #00b33c;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background:  #006622;
+      font-size: 16px;
+      color: #fff;
+cursor: pointer;
+      }
+      button:hover {
+      background:  #00b33c;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+
+
+
+    </style>
+</head>
+<body>
+<div class="testbox">
+    <form th:action="@{/addCourse}" th:object="${course}" method="POST">
+        <div class="banner">
+            <h1>Course Registration</h1>
+        </div>
+        <br/>
+        <div>
+            <input id="id" type="text" name="id" th:field="*{id}" style="display:none"/>
+            <div class="item">
+                <label>Title</label>
+                <input id="title" type="text" name="title" th:field="*{title}"/>
+            </div>
+            <div class="item">
+                <label>Professor</label>
+                <input id="professor" type="text" name="professor" th:field="*{professor}"/>
+            </div>
+            <div class="item">
+                <label>Starting Date</label>
+                <input id="startingDay" type="date" name="startingDay" th:field="*{startingDay}"/>
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="btn-block">
+                <button type="submit" href="courseList">Submit</button>
+            </div>
+            <div class="btn-block">
+                <button><a href="/">Back</a></button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

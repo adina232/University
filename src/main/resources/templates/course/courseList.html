@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+</head>
+<body>
+<h1>Courses</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Professor</td>
+        <td>Starting Day</td>
+        <td>Students</td>
+    </tr>
+    <tr th:each="course: ${courseList}">
+        <td th:text="${course.id}">Id</td>
+        <td th:text="${course.title}">Title</td>
+        <td th:text="${course.professor}">Professor</td>
+        <td th:text="${course.startingDay}">Starting Day</td>
+        <td><a th:href="@{/seeStudents(courseId=${course.id})}">see students</a></td>
+    </tr>
+</table>
+<div class="btn-block">
+    <button><a href="/">Back</a></button>
+</div>
+</body>
+</html>

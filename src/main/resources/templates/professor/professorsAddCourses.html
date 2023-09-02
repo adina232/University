@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Courses To Teach</title>
+</head>
+<body>
+<h1>Add Courses To Teach</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Starting day</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="courseDto: ${courseDtoList}">
+        <td th:text="${courseDto.id}">Id</td>
+        <td th:text="${courseDto.title}">Title</td>
+        <td th:text="${courseDto.startingDay}">Starting day</td>
+        <td><a th:href="@{/addCourseToProfessor(professorId=${professorId},
+        courseId=${courseDto.id})}">add</a></td>
+    </tr>
+</table>
+
+<div class="btn-block">
+    <button><a href="/professors">Back</a></button>
+</div>
+
+</body>
+</html>

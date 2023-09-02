@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Courses</title>
+</head>
+<body>
+<h1>Your Courses</h1>
+<table>
+    <tr>
+        <td>Title</td>
+        <td>Starting Day</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="courseDto: ${courses}">
+        <td th:text="${courseDto.title}">Title</td>
+        <td th:text="${courseDto.startingDay}">Starting Day</td>
+        <td><a th:href="@{/deleteCourseForStudent(studentId=${studentId}, courseId=${courseDto.id})}">delete</a></td>
+    </tr>
+</table>
+<div class="btn-block">
+    <button><a href="/studentList">Back</a></button>
+</div>
+</body>
+</html>

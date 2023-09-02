@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Professors</title>
+</head>
+<body>
+<h1>Professors</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Courses</td>
+    </tr>
+    <tr th:each="professorDto: ${professorList}">
+        <td th:text="${professorDto.id}">Id</td>
+        <td th:text="${professorDto.name}">Name</td>
+        <td><a th:href="@{/professorsAddCourses(id=${professorDto.id})}">add courses</a>
+            <a th:href="@{/seeProfessorCourses(id=${professorDto.id})}">see courses</a></td>
+    </tr>
+</table>
+
+<div class="btn-block">
+    <button><a href="/">Back</a></button>
+</div>
+
+</body>
+</html>

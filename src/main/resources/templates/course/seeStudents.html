@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+<h1>Students in this course</h1>
+<table>
+    <tr>
+        <td>Student id</td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Date Of Birth</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="studentDto: ${studentsInCourse}">
+        <td th:text="${studentDto.id}">Student id</td>
+        <td th:text="${studentDto.firstName}">First name</td>
+        <td th:text="${studentDto.lastName}">Last name</td>
+        <td th:text="${studentDto.dateOfBirth}">Date Of Birth</td>
+        <td><a th:href="@{/deleteStudentFromCourseList(courseId=${courseId},
+        studentId=${studentDto.id})}">delete</a></td>
+    </tr>
+</table>
+
+<div class="btn-block">
+    <button><a href="/">Back</a></button>
+</div>
+</body>
+</html>
